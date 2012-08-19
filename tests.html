@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+	<!-- Title &amp; Meta -->
+	<title>Frontend Tests</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Pete Hawkins @peteyhawkins">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="/js/libs/mocha/mocha.css">
+</head>
+
+<body>
+
+	<div id="mocha"></div>
+
+	<!-- Testing Libraries -->
+	<script src="/js/libs/mocha/mocha.js"></script>
+	<script src="/js/libs/sinon/sinon.js"></script>
+    <script>
+		// Setup mocha to run with BDD
+		mocha.setup('bdd');
+    </script>
+
+    <!-- AMD Loader -->
+    <script data-main="/js/tests" src="/js/libs/require/require.js"></script>
+
+</body>
+</html>

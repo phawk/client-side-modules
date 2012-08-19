@@ -1,0 +1,53 @@
+html, body{ font-size: 100%; /* ~16px */ }
+
+body{
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: #333;
+}
+
+
+/* Button styles
+--------------------------------------------------*/
+.btn{
+	background: #e7e7e7;
+	padding: 0.4em 0.5em;
+	border-radius: 2px;
+	color: #333;
+	text-decoration: none;
+	border: none;
+	text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+}
+
+.btn:hover{
+	background: #d7d7d7;
+	color: #121212;
+}
+
+.btn.btn-primary{
+	background: #a50b0b;
+	color: #fff;
+}
+
+.btn.btn-primary:hover{ background: #8b0505; }
+
+
+/* Typography
+--------------------------------------------------*/
+a{ color: #a50b0b; }
+
+a:hover{ color: #8b0505; }
+
+h1{
+	color: #000;
+	font-size: 2em;
+}
+
+h2{
+	color: #7a7979;
+	font-size: 1.5em;
+}
+
+h3{
+	font-size: 1.25em;
+	color: #a50b0b;
+}

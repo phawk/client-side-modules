@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+	<!-- Title &amp; Meta -->
+	<title>Action Dialog</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Pete Hawkins @peteyhawkins">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="stylesheets/action-dialog.css">
+</head>
+
+<body>
+
+<section class="action-example">
+	<div class="dialog"></div>
+	<div class="statusMessage"></div>
+	<a href="#" class="openDialog">Open dialog</a>
+</section>
+
+	<script src="/js/libs/require/require.js"></script>
+	<script>
+		require.config({
+		    baseUrl: "/js"
+		  , paths: {
+		        "jquery": "libs/jquery/jquery.min"
+		      , "underscore": "libs/underscore/underscore-min"
+		      , "backbone": "libs/backbone/backbone-min"
+		      , "handlebars": "libs/handlebars/handlebars"
+		      , "text": "libs/require/text"
+		    }
+		  , shim: {
+		        'underscore': {
+		            exports: '_'
+		        }
+		      , 'backbone': {
+		            deps: ['underscore', 'jquery']
+		          , exports: 'Backbone'
+		        }
+		      , 'handlebars': {
+		            exports: 'Handlebars'
+		        }
+		      , 'libs/jquery/chosen.jquery.min': ['jquery']
+		    }
+		  , urlArgs: "bust="+(new Date()).getTime() // cache-busting for development
+		});
+
+		require(["jquery", "./modules/action-dialog/main"], function($, ActionDialog) {
+		    var actionDialog = null;
+
+		    $(".openDialog").click(function() {
+		    	actionDialog = new ActionDialog({
+			    	el: $(".dialog")
+			      , heading: "Action Dialog"
+			      , message: "Are you sure you want to close the fabolous action dialog?"
+			    }).render();
+
+			    actionDialog.bind("confirmed", function() {
+			    	$(".statusMessage").text("Dialog: Confirmed");
+			    });
+
+			    actionDialog.bind("cancelled", function() {
+			    	$(".statusMessage").text("Dialog: Cancelled");
+			    });
+
+			    $(".statusMessage").text("Dialog: Opened");
+		    });
+		});
+	</script>
+
+</body>
+</html>
